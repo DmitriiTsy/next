@@ -1,6 +1,9 @@
 
-import '@styles/globals.css';
+import '../styles/global.css';
 import React from 'react'
+
+import Nav from '../components/Nav'
+import Provider from '../components/Provider'
 
 
 export const metadata = {
@@ -8,7 +11,7 @@ export const metadata = {
     descriptiom: "Discover & Share AI Prompts"
 
 }
-const RootLayout = () => {
+const RootLayout = ({children}) => {
   return (
     <html Lang="en">
         <body>
@@ -18,6 +21,7 @@ const RootLayout = () => {
                 </div>
             </div>
             <main className='app'>
+                <Nav/>
                 {children}
             </main>
         </body>
