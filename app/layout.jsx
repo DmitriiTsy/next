@@ -1,17 +1,21 @@
-import React, { Children } from 'react'
-import '@styles/global.css'
+
+import '@styles/globals.css';
+import React from 'react'
+
 
 export const metadata = {
-    title: "Promptopia",
-    description: "Discover & Share AI Prompts"
-}
+    title: "Promtopia",
+    descriptiom: "Discover & Share AI Prompts"
 
-export const RootLayout = ({children}) => {
+}
+const RootLayout = () => {
   return (
-    <html lang='en'>
+    <html Lang="en">
         <body>
             <div className='main'>
-                <div className='gradient'></div>
+                <div className='gradient'>
+
+                </div>
             </div>
             <main className='app'>
                 {children}
@@ -20,3 +24,5 @@ export const RootLayout = ({children}) => {
     </html>
   )
 }
+
+export default RootLayout
