@@ -5,17 +5,18 @@ import Image from 'next/image'
 import {signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
 const Nav = () => {
-const isUserLoggedInt = true
-const [providers, setProviderss] = useState(null)
-const [toggleDropDown, setToggleDropDown] = useState(false)
+    const { data: session } = useSession()
 
-useEffect(() => {
-    const setProviders = async () => {
-        const response = await getProviders()
-        setProviderss(response)
-    }
-    setProviders()
-}, [])
+    const [providers, setProviderss] = useState(null)
+    const [toggleDropDown, setToggleDropDown] = useState(false)
+
+    useEffect(() => {
+        const setProviders = async () => {
+            const response = await getProviders()
+            setProviderss(response)
+        }
+        setProviders()
+    }, [])
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
         <Link href="/" className='flex gap-2 flex-center'>
@@ -30,7 +31,7 @@ useEffect(() => {
             </p>
         </Link>
         <div className='sm:flex hidden'>
-            {isUserLoggedInt ? (
+            {session?.user ? (
                 <div className='flex gap-3 md:gap-5'>
                     <Link href='/create-prompt' className='black_btn'>
                         Create post
@@ -41,6 +42,7 @@ useEffect(() => {
 
                     <Link href="/profile">
                         <Image 
+                            alt="logo_avatar"
                             width={37}
                             height={37}
                             className='rounded-full'
@@ -68,7 +70,7 @@ useEffect(() => {
         </div>
         <div
             className='sm:hidden flex relative'>
-                {isUserLoggedInt ? (
+                {session?.user ? (
                     <div className='flex'>
                         <Image 
                             width={37}
