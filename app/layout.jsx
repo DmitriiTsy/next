@@ -1,22 +1,35 @@
-import React, { Children } from 'react'
-import '@styles/global.css'
+
+import '../styles/global.css';
+import React from 'react'
+
+import Nav from '../components/Nav'
+import Provider from '../components/Provider'
+
 
 export const metadata = {
-    title: "Promptopia",
-    description: "Discover & Share AI Prompts"
-}
+    title: "Promtopia",
+    descriptiom: "Discover & Share AI Prompts"
 
-export const RootLayout = ({children}) => {
+}
+const RootLayout = ({children}) => {
   return (
-    <html lang='en'>
+    <html Lang="en">
         <body>
-            <div className='main'>
-                <div className='gradient'></div>
-            </div>
-            <main className='app'>
-                {children}
-            </main>
+            <Provider>
+                <div className='main'>
+                    <div className='gradient'>
+
+                    </div>
+                </div>
+                
+                <main className='app'>
+                    <Nav/>
+                    {children}
+                </main>
+            </Provider>
         </body>
     </html>
   )
 }
+
+export default RootLayout
