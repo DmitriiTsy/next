@@ -27,7 +27,7 @@ const Nav = () => {
                 height={30} 
                 src="/assets/images/logo.svg"/>
             <p className='logo_text'>
-                Promptopia
+                promptopia
             </p>
         </Link>
         <div className='sm:flex hidden'>
